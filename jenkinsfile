@@ -19,8 +19,10 @@ pipeline {
                                         }
         stage ("push image in staging and deploy it') { 
 
+  
+
 
 post { 
-  sucess {
+  sucess { 
 
 
