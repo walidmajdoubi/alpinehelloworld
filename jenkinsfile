@@ -1,0 +1,21 @@
+  GNU nano 5.4                                                                               New Buffer *                                                                                       
+pipeline {
+        environment {
+        IMAGE_NAME = "alpinehelloworld"
+        IMAGE_TAG = "latest"
+        STAGING =  "eazytraining-staging"
+        PRODUCTION = "eazytraining-production" 
+        }
+        agent none 
+        stages { 
+                stage ('build image') {
+                agent any 
+                steps {
+                        script {
+                                sh '''      
+                                        docker stop $IMAGE_NAME
+                                        docker rm $IMAGE_NAME
+                                        '''
+                                        }
+        stage ("push image in staging and deploy it') { 
+                when {
